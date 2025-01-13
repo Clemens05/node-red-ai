@@ -1,4 +1,6 @@
 <script type="text/javascript">
+  console.log("custom-sidebar.html");
+
   var content;
   var chatHistory = [];
 
@@ -73,12 +75,13 @@
             message: message,
             flows: getCurrentFlows(),
             history: chatHistory,
+            model: "gpt-4o",
           }),
           success: function (response) {
-            console.log("response", response.response);
-            addMessage("assistant", response.response.message);
-            if (response.response.flows) {
-              applyFlowChanges(response.response.flows);
+            console.log("response", response);
+            addMessage("assistant", response.message);
+            if (response.flows) {
+              applyFlowChanges(response.flows);
             }
           },
           error: function (err) {
@@ -144,11 +147,11 @@
     onadd: function () {
       init();
 
-      RED.events.on("sidebar:custom-sidebar", function (done) {
-        // Create the sidebar content container if it doesn't exist
+      // RED.events.on("sidebar:custom-sidebar", function (done) {
+      //   // Create the sidebar content container if it doesn't exist
 
-        if (done) done();
-      });
+      //   if (done) done();
+      // });
     },
   });
 </script>

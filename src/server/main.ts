@@ -21,7 +21,7 @@ function getSystemPrompt(flows: any[]): string {
           Current flows: ${JSON.stringify(flows, null, 2)}`;
 }
 
-export default function main(red: NodeAPI) {
+function main(red: NodeAPI) {
   const settings = getSettings(red);
 
   const openai = new OpenAI({
@@ -76,3 +76,5 @@ export default function main(red: NodeAPI) {
     res.json({ status: "success", message: response, flows: null });
   });
 }
+
+module.exports = main;

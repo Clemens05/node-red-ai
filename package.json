@@ -1,0 +1,17 @@
+{
+  "name": "node-red-ai",
+  "version": "0.1.0",
+  "description": "A Node-RED plugin that adds a custom tab to the editor sidebar",
+  "node-red": {
+    "plugins": {
+      "custom-sidebar": "custom-sidebar.js"
+    },
+    "nodes": {
+      "custom-sidebar": "custom-sidebar.html"
+    }
+  },
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "openai": "^4.78.1"
+  }
+}
